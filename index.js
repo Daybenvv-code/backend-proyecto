@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express"); //es la forma clasica de importar express con node
 const swaggerUi = require("swagger-ui-express");
 const openapi = require("./docs/openapi.js");
@@ -20,8 +21,8 @@ res.json({
 });
 });
 
-app.get("/api/:edad", (req, res) => {
-const Año  = Number(req.params.edad);
+app.get("/api/edad/:anio", (req, res) => {
+const Año  = Number(req.params.anio);
 const añoActual = new Date().getFullYear();
 
 if (!Number.isInteger(Año) || Año < 1900 || Año > añoActual) {

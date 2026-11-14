@@ -3,13 +3,13 @@ node_modules/
 
 # Variables de entorno
 .env
-.env. |
+.env.*
 
 # Permitir archivo de ejemplo
-1.env.example
+!.env.example
 
 # Logs
-.. 1og
+*.log
 npm-debug.log*
 
 # Archivos del sistema
