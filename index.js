@@ -8,6 +8,10 @@ const PORT = process.env.PORT || 3000;
 //Documentacion de la API
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(openapi));
 
+app.get("/", (req, res) => {
+res.redirect("/api-docs");
+});
+
 //req(request) res(response) res.json(respuesta en formato JSON)
 //arrow function
 app.get("/api/saludo", (req, res) => {
@@ -33,6 +37,10 @@ res.json({
     "año": Año,
     edad: añoActual - Año
 });
+});
+
+app.use((req, res) => {
+res.status(404).json({ error: "Ruta no encontrada" });
 });
 
 app.listen(PORT, ()=> console.log("API lista"));
